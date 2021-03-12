@@ -52,7 +52,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     const char* pszTimestamp = "Gallows Brewing best in the west";
-    const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+    const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -105,25 +105,25 @@ public:
         pchMessageStart[1] = 0xe8;
         pchMessageStart[2] = 0xc7;
         pchMessageStart[3] = 0xca;
-        nDefaultPort = 9333;
+        nDefaultPort = 9774;
         nPruneAfterHeight = 100000;
         m_assumed_blockchain_size = 22;
         m_assumed_chain_state_size = 3;
 
-        genesis = CreateGenesisBlock(1513784917, 2085843577, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1615471540, 3230762, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("a1981721f5586a3e4b12db51a376602e8102557100e0e3c103dd60401c852521"));
-        assert(genesis.hashMerkleRoot == uint256S("63c1dc4b2b2c8892887695752946ecc284ae55a97fa6de2f1726faba6464a03b"));
+        assert(consensus.hashGenesisBlock == uint256S("cba66d2b1547015d6e0db4a94d6f0b124650fa52ef8ef5df452c608f49eb9cd2"));
+        assert(genesis.hashMerkleRoot == uint256S("f91bed2f4a5792cba343f56db14f38258360f16f4373fb63f2e94d865ff9e250"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
         // This is fine at runtime as we'll fall back to using them as a oneshot if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        //vSeeds.emplace_back("seed-a.gallowsbrewingcoin.loshan.co.uk");
+        //vSeeds.emplace_back("seed-a.litecoin.loshan.co.uk");
         //vSeeds.emplace_back("dnsseed.thrasher.io");
-        //vSeeds.emplace_back("dnsseed.gallowsbrewingcointools.com");
-        //vSeeds.emplace_back("dnsseed.gallowsbrewingcoinpool.org");
+        //vSeeds.emplace_back("dnsseed.litecointools.com");
+        //vSeeds.emplace_back("dnsseed.litecoinpool.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -142,13 +142,13 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("a1981721f5586a3e4b12db51a376602e8102557100e0e3c103dd60401c852521")},
+                {  0, uint256S("cba66d2b1547015d6e0db4a94d6f0b124650fa52ef8ef5df452c608f49eb9cd2")},
             }
         };
 
         chainTxData = ChainTxData{
             // Data from rpc: getchaintxstats 4096 2cdba8c47858d34cf0e02dfb8733263a3ed8705b1663ec7c158783d77b93e7ee
-            /* nTime    */ 1513784917,
+            /* nTime    */ 1615471540,
             /* nTxCount */ 0,
             /* dTxRate  */ 0
         };
@@ -207,24 +207,24 @@ public:
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlock(1513784917, 2085843577, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1615471540, 3230762, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("a1981721f5586a3e4b12db51a376602e8102557100e0e3c103dd60401c852521"));
-        assert(genesis.hashMerkleRoot == uint256S("63c1dc4b2b2c8892887695752946ecc284ae55a97fa6de2f1726faba6464a03b"));
+        assert(consensus.hashGenesisBlock == uint256S("cba66d2b1547015d6e0db4a94d6f0b124650fa52ef8ef5df452c608f49eb9cd2"));
+        assert(genesis.hashMerkleRoot == uint256S("f91bed2f4a5792cba343f56db14f38258360f16f4373fb63f2e94d865ff9e250"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        //vSeeds.emplace_back("testnet-seed.gallowsbrewingcointools.com");
-        //vSeeds.emplace_back("seed-b.gallowsbrewingcoin.loshan.co.uk");
-        //vSeeds.emplace_back("dnsseed-testnet.thrasher.io");
+        vSeeds.emplace_back("testnet-seed.litecointools.com");
+        vSeeds.emplace_back("seed-b.litecoin.loshan.co.uk");
+        vSeeds.emplace_back("dnsseed-testnet.thrasher.io");
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
-        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,38);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x26, 0x88, 0xB2, 0x1E};
-        base58Prefixes[EXT_SECRET_KEY] = {0x26, 0x88, 0xAD, 0xE4};
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
+        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
+        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
         bech32_hrp = "tltc";
 
@@ -236,15 +236,15 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("a1981721f5586a3e4b12db51a376602e8102557100e0e3c103dd60401c852521")},
+                {2056, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
             }
         };
 
         chainTxData = ChainTxData{
-            // Data from rpc: getchaintxstats 4096 2cdba8c47858d34cf0e02dfb8733263a3ed8705b1663ec7c158783d77b93e7ee
-            /* nTime    */ 1513784917,
-            /* nTxCount */ 0,
-            /* dTxRate  */ 0
+            // Data from rpc: getchaintxstats 4096 e79561972208ba3a02c308482176b33f3ec841d4213ea7bbaa3f22b7c8a16f32
+            /* nTime    */ 1565582448,
+            /* nTxCount */ 2848910,
+            /* dTxRate  */ 0.02265200874042768
         };
 
         /* enable fallback fee on testnet */
@@ -288,10 +288,10 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xbf;
-        pchMessageStart[2] = 0xb5;
-        pchMessageStart[3] = 0xda;
+        pchMessageStart[0] = 0xf4;
+        pchMessageStart[1] = 0xe8;
+        pchMessageStart[2] = 0xc7;
+        pchMessageStart[3] = 0xc8;
         nDefaultPort = 19444;
         nPruneAfterHeight = 1000;
         m_assumed_blockchain_size = 0;
@@ -299,10 +299,10 @@ public:
 
         UpdateVersionBitsParametersFromArgs(args);
 
-        genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1615471540, 3230762, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("cba66d2b1547015d6e0db4a94d6f0b124650fa52ef8ef5df452c608f49eb9cd2"));
+        assert(genesis.hashMerkleRoot == uint256S("f91bed2f4a5792cba343f56db14f38258360f16f4373fb63f2e94d865ff9e250"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -313,7 +313,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9")},
+                {0, uint256S("cba66d2b1547015d6e0db4a94d6f0b124650fa52ef8ef5df452c608f49eb9cd2")},
             }
         };
 
