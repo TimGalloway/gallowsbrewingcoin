@@ -1,0 +1,59 @@
+pchMessage
+	f4 = 244
+	E8 = 232
+	C7 = 199
+	CA = 202
+
+Port 9774
+
+tim@gallowsbrewingcoin:~/GenesisH0$ python genesis.py -a scrypt -z "Gallows Brewing best in the west"
+04ffff001d01042047616c6c6f77732042726577696e67206265737420696e207468652077657374
+algorithm: scrypt
+merkle hash: f91bed2f4a5792cba343f56db14f38258360f16f4373fb63f2e94d865ff9e250
+pszTimestamp: Gallows Brewing best in the west
+pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+time: 1615471540
+bits: 0x1e0ffff0
+Searching for genesis hash..
+1411.0 hash/s, estimate: 845.5 hgenesis hash found!
+nonce: 3230762
+genesis hash: cba66d2b1547015d6e0db4a94d6f0b124650fa52ef8ef5df452c608f49eb9cd2
+tim@gallowsbrewingcoin:~/GenesisH0$
+
+TESTNET
+tim@gallowsbrewingcoin:~/GenesisH0$ python genesis.py -a scrypt -z "Gallows Brewing best in the west" -t 1615471540 -n 3230762 -p 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+04ffff001d01042047616c6c6f77732042726577696e67206265737420696e207468652077657374
+algorithm: scrypt
+merkle hash: f91bed2f4a5792cba343f56db14f38258360f16f4373fb63f2e94d865ff9e250
+pszTimestamp: Gallows Brewing best in the west
+pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+time: 1615471540
+bits: 0x1e0ffff0
+Searching for genesis hash..
+genesis hash found!
+nonce: 3230762
+genesis hash: cba66d2b1547015d6e0db4a94d6f0b124650fa52ef8ef5df452c608f49eb9cd2
+tim@gallowsbrewingcoin:~/GenesisH0$
+
+
+
+
+
+
+
+----
+OLD
+---
+tim@nas:/mnt/ide2/source/GenesisH0$ python genesis.py -a scrypt -z "Gallows Brewing best in the west" -p "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9" -t 1513784917 -n 2084524493
+04ffff001d01042047616c6c6f77732042726577696e67206265737420696e207468652077657374
+algorithm: scrypt
+merkle hash: 63c1dc4b2b2c8892887695752946ecc284ae55a97fa6de2f1726faba6464a03b
+pszTimestamp: Gallows Brewing best in the west
+pubkey: 040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9
+time: 1513784917
+bits: 0x1e0ffff0
+Searching for genesis hash..
+1950.0 hash/s, estimate: 611.8 hgenesis hash found!
+nonce: 2085843577
+genesis hash: a1981721f5586a3e4b12db51a376602e8102557100e0e3c103dd60401c852521
+tim@nas:/mnt/ide2/source/GenesisH0$
